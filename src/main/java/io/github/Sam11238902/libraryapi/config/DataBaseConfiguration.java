@@ -12,7 +12,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 // configuracao do hikari 
 ///https://github.com/brettwooldridge/HikariCP
-
+ 	
 
 @Configuration
 public class DataBaseConfiguration {
