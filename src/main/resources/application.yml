@@ -6,6 +6,10 @@ spring:
   username: postgres
   password: postgres
   driver-class-name: org.postgresql.Driver
-
+  #ESSA CONFIGURA JPA -- CRIA O BANCO DE ACORDO COM AS ENTIDADES ANOTADAS COM ENTITY .
+  jpa:
+   hibernate:
+   ddl-auto: update,none,create-drop
+   
   
   
