@@ -1,0 +1,10 @@
+spring:
+ application:
+  name: libraryapi 
+ datasource:
+  url: jdbc:postgres://localhost5432/library
+  username: postgres
+  passworld: postgres
+  driver-class-name: org.postgresql.driver
+  
+  
