@@ -73,7 +73,6 @@ public class DataBaseConfiguration {
 		
 		dbConfig.setConnectionTestQuery("select 1"); // query de teste .
 		
-		
 		HikariDataSource db = new HikariDataSource(dbConfig);
 		
 		return db;
