@@ -8,8 +8,11 @@ spring:
   driver-class-name: org.postgresql.Driver
   #ESSA CONFIGURA JPA -- CRIA O BANCO DE ACORDO COM AS ENTIDADES ANOTADAS COM ENTITY .
   jpa:
-   hibernate:
-   ddl-auto: update,none,create-drop
+     hibernate:
+       ddl-auto: update  # Ou 'create', ou 'create-drop', depende da sua necessidade
+     show-sql: true         # Habilita a exibição das SQLs
+     properties:
+       hibernate.format_sql: true 
    
   
   

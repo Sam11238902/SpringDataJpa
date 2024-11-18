@@ -1,6 +1,7 @@
 package io.github.Sam11238902.libraryapi.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import org.hibernate.annotations.ManyToAny;
@@ -9,6 +10,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -18,15 +21,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "livro")
+
 @Data // @Anotation @Data , incorpora , @Getter , @Setter @ToString, @EqualsAndHashCode @RequiredArgsContructor
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Entity
+@Table(name = "livro")
 public class Livro {
 		
 	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(name = "id", nullable = false)
 	private UUID id;
 	
@@ -46,13 +50,17 @@ public class Livro {
 	private BigDecimal preco;
 	
 	
+	@Column(name ="data_publicacao", nullable = false)
+	private LocalDate dataPublicacao;
+	
+
+	
 	@ManyToOne
 	@JoinColumn(name = "id_autor")
 	private Autor autor;
 	
-	
-/*
- 
+
+ /*
 create table livro (
 	id uuid not null primary key,
 	isbn varchar(20) not null,
