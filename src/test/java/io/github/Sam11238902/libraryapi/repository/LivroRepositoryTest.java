@@ -13,6 +13,8 @@ import io.github.Sam11238902.libraryapi.model.GeneroLivro;
 import io.github.Sam11238902.libraryapi.model.Livro;
 import io.github.Sam11238902.libraryapi.repositories.AutorRepository;
 import io.github.Sam11238902.libraryapi.repositories.LivroRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
 @SpringBootTest
 public class LivroRepositoryTest {
@@ -28,7 +30,7 @@ public class LivroRepositoryTest {
 	
 	
 	
-	
+	@Transactional
 	@Test
 	void salvarTest() {
 		
@@ -51,6 +53,36 @@ public class LivroRepositoryTest {
 		livro.setAutor(autorLivro);
 		
 		livroRepository.save(livro);
+		
+		
+	}
+	
+	
+	@Test
+	void salvarAutorCascate() {
+	
+		
+		Livro livro = new Livro();
+		
+		livro.setIsbn("90887-8470");
+		livro.setPreco(BigDecimal.valueOf(100));
+		livro.setGenero(GeneroLivro.FICCAO);
+		livro.setTitulo("Java How to Program");
+		livro.setDataPublicacao(LocalDate.of(1980, 2, 25));
+		
+		
+		
+		
+		Autor aut1 = new Autor();
+		aut1.setName("João Da Silva");
+		aut1.setNacionalidade("EUA");
+		aut1.setDataNascimento(LocalDate.of(1980,2,24));
+		
+		livro.setAutor(aut1);
+		livroRepository.save(livro);
+		
+		
+		
 		
 		
 	}

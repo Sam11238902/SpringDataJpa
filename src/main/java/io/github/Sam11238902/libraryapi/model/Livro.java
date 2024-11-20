@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.hibernate.annotations.ManyToAny;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -53,9 +54,9 @@ public class Livro {
 	@Column(name ="data_publicacao", nullable = false)
 	private LocalDate dataPublicacao;
 	
-
 	
-	@ManyToOne
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_autor")
 	private Autor autor;
 	
