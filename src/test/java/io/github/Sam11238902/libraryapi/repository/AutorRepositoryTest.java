@@ -85,6 +85,28 @@ public class AutorRepositoryTest {
 	
 	
 	@Test
+	void listarLivrosAutor() {
+		
+		UUID id = UUID.fromString("36a7cc2c-ce74-420e-a6eb-e2df36e4872b");
+		
+		Autor autor = autorRepository.findById(id).orElse(null);
+		
+		autor.setListLivros(livroRepository.findByAutor(autor));
+		
+		
+		System.out.println("**** IMPRIMINDO LIVROS DO AUTOR PESQUISADO : \n");
+		
+		
+		for(Livro l : autor.getListLivros()) {
+			
+			System.out.println(l.toString());
+		}
+		
+	}
+	
+	
+	
+	@Test
 	@Transactional
 	public void contagemAutores() {
 		System.out.println("Contagem de autores : " + autorRepository.count());
@@ -103,7 +125,7 @@ public class AutorRepositoryTest {
 	
 	
 	@Test
-	
+	@Transactional
 	public void salvarAutorLivros() {
 		
 		

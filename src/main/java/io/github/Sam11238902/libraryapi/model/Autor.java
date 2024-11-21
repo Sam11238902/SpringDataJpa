@@ -53,7 +53,9 @@ public class Autor {
 	
 	
 	
-	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
+	
+	// É UMA BOA PRATICA SEMPRE UTILIZAR O LAZY
+	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@ToString.Exclude
 	private List<Livro> listLivros;
 		
