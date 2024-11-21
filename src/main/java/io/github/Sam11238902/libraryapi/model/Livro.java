@@ -11,6 +11,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,6 +22,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 @Data // @Anotation @Data , incorpora , @Getter , @Setter @ToString, @EqualsAndHashCode @RequiredArgsContructor
@@ -54,10 +56,17 @@ public class Livro {
 	@Column(name ="data_publicacao", nullable = false)
 	private LocalDate dataPublicacao;
 	
+	//(cascade = CascadeType.ALL)
 	
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	// ESSE TIPO DE FETCH QUANDO EU FAÇO UM BUSCAR ELE NÃO TRAS OS DADOS DO AUTOR , SOMENTE O DO LIVRO.
+	// ISSO AJUDA NA ECONOMIA DE DADOS , POR EXEMPL , SE O AUTOR TIVER MAIS COMPOSICOES PARA NAO SELECIONAR COISAS
+	// COISAS QUE NAO PRECISA . 
+	
+	
+	@ManyToOne()
 	@JoinColumn(name = "id_autor")
+	
 	private Autor autor;
 	
 
