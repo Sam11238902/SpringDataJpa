@@ -13,8 +13,8 @@ create table livro (
 	genero varchar(30) not null,
 	preco numeric (18,2) not null,
 	id_autor uuid not null references autor(id),
-	CONSTRAINT chk_genero check(genero in ('FICCAO','FANTASIA',
-	'MISTERIO','ROMANCE','BIOGRAFIA','CIENCIA'))
+		CONSTRAINT chk_genero check(genero in ('FICCAO','FANTASIA',
+		'MISTERIO','ROMANCE','BIOGRAFIA','CIENCIA'))
 	
 );
 

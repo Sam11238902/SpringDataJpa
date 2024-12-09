@@ -13,9 +13,18 @@ import io.github.Sam11238902.libraryapi.model.Livro;
 public interface LivroRepository extends JpaRepository<Livro, UUID> {
 
 	
-	//QUERY METHOD , METODO DE CONSULTA PERSONALIZADA 
-	
-	 List<Livro> findByAutor(Autor autor);
+	// Query Methods abaixo 
+	// SELECT * FROM livro WHERE Autor = Autor autor <<< FAZ ESSE SELECT NO BANCO 
+	 List<Livro> findByAutor(Autor autor);	 
 	 
+	 // SELECT * FROM livro WHERE titulo = String titulo; << FAZ ESSE SELECT NO BANCO
+	 List<Livro> findByTitulo(String titulo);
 	
+	 
+	 List<Livro> findByTituloContainingIgnoreCase(String titulo);
+	 
+	 
+	 
+	 List<Livro> findByIsbn(String isbn);
+	 
 }

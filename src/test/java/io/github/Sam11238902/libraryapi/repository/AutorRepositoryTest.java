@@ -91,7 +91,12 @@ public class AutorRepositoryTest {
 		
 		Autor autor = autorRepository.findById(id).orElse(null);
 		
+		//COMO O LIST<LIVROS> DE AUTOR ESTA EM FETCH LAZY , ELE NAO CARREGA ,EU PRECISO IR NO LIVROS E BUSCAR POR AUTOR
+		// DEPOIS RETORNO PARA DENTRO DE AUTOR A LISTA DE LIVROS DO AUTOR QUE FOI PASSADO ENCONTRADA .
+		// É SEMPRE UMA BOA PRATICA USAR O FETCH LAZY , PARA ECONOMIA DE MEMORIA .
 		autor.setListLivros(livroRepository.findByAutor(autor));
+		
+		
 		
 		
 		System.out.println("**** IMPRIMINDO LIVROS DO AUTOR PESQUISADO : \n");

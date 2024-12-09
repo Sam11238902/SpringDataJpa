@@ -58,8 +58,6 @@ public class Autor {
 	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@ToString.Exclude
 	private List<Livro> listLivros;
-		
-	
 	
 }
 

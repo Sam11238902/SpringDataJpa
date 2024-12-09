@@ -48,12 +48,8 @@ public class DataBaseConfiguration {
 		ds.setDriverClassName(driver);
 
 		return ds;
-
 	}
 	*/
-	
-	
-	
 	
 	@Bean
 	public DataSource hikkariDataSouce() {
