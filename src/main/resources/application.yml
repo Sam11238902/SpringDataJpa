@@ -1,18 +1,18 @@
 spring:
- application:
-  name: libraryapi 
- datasource:
-  url: jdbc:postgresql://localhost:5432/library
-  username: postgres
-  password: postgres
-  driver-class-name: org.postgresql.Driver
-  #ESSA CONFIGURA JPA -- CRIA O BANCO DE ACORDO COM AS ENTIDADES ANOTADAS COM ENTITY .
+  application:
+    name: libraryapi
+  datasource:
+    url: jdbc:postgresql://localhost:5432/library
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
   jpa:
-     hibernate:
-       ddl-auto: update  # Ou 'create', ou 'create-drop', depende da sua necessidade
-     show-sql: true         # Habilita a exibição das SQLs
-     properties:
-       hibernate.format_sql: true 
-   
+    hibernate:
+      ddl-auto: update  # Ou 'create', ou 'create-drop', depende da sua necessidade
+    show-sql: true       # Habilita a exibição das SQLs no log
+    properties:
+      hibernate:
+        format_sql: true  # Formata o SQL para fácil leitura
+
   
   
